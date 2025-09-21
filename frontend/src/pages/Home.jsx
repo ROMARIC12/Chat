@@ -205,7 +205,7 @@ const Home = () => {
                     <div className={`section-header ${featuresRef.current ? 'animate-on-scroll' : ''}`}>
                         <h2 className="section-title">Fonctionnalités puissantes</h2>
                         <p className="section-description">
-                            Découvrez les fonctionnalités qui font d'Iss'Chat une expérience de communication unique.
+                            Découvrez les fonctionnalités qui font chez ChatApp une expérience de communication unique.
                         </p>
                     </div>
                     <div className={`features-grid ${featuresRef.current ? 'animate-on-scroll' : ''}`}>
