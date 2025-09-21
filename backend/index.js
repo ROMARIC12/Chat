@@ -10,7 +10,7 @@ const app = express();
 const server = http.createServer(app);
 const io = socketIo(server, {
   cors: {
-    origin: process.env.FRONTEND_URL || "https://localhost:5317",
+    origin: process.env.FRONTEND_URL",
     methods: ["GET", "POST"]
   }
 });
@@ -18,7 +18,7 @@ const io = socketIo(server, {
 // Rendre l'instance io accessible dans les contrôleurs
 app.set('io', io);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 
 connectMongoDB();
 
