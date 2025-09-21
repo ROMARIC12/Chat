@@ -1,0 +1,282 @@
+/* ====================================================================== */
+/* LOGIN PAGE - COHÉRENCE AVEC LA PAGE D'ACCUEIL ISS'CHAT */
+/* ====================================================================== */
+
+:root {
+  /* Couleurs de la page d'accueil */
+  --primary-blue-start: #3b82f6;
+  --primary-blue-end: #1d4ed8;
+  --text-color-dark: #1e293b;
+  --text-color-light: #64748b;
+  --background-light: #f8fafc;
+  --background-card: #ffffff;
+  --border-color-light: #e2e8f0;
+  --input-border-color: #cbd5e1;
+  --input-placeholder-color: #a0aec0;
+
+  /* Ombres pour la cohérence des cartes et des boutons */
+  --shadow-main: 0 8px 25px rgba(59, 130, 246, 0.15);
+  --shadow-hover: 0 12px 24px rgba(59, 130, 246, 0.25);
+  --shadow-button: 0 4px 14px rgba(59, 130, 246, 0.3);
+  --shadow-button-hover: 0 8px 25px rgba(59, 130, 246, 0.4);
+
+  /* Rayons de bordure unifiés */
+  --border-radius-large: 16px;
+  --border-radius-medium: 12px;
+  --border-radius-small: 8px;
+}
+
+/* --- Global & Animations --- */
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--text-color-dark);
+}
+
+@keyframes slideInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Login Container --- */
+.login-container {
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--background-light) 0%, #e2e8f0 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.login-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+              radial-gradient(circle at bottom right, rgba(29, 78, 216, 0.08) 0%, transparent 60%);
+  z-index: 1;
+}
+
+/* --- Login Form (Card Style) --- */
+.login-form {
+  background: var(--background-card);
+  padding: 3rem;
+  border-radius: var(--border-radius-large);
+  box-shadow: var(--shadow-main);
+  width: 100%;
+  max-width: 450px;
+  border: 1px solid var(--border-color-light);
+  position: relative;
+  animation: slideInUp 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 2;
+}
+
+.login-form h2 {
+  color: var(--text-color-dark);
+  margin-bottom: 2rem;
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  position: relative;
+}
+
+.login-form h2::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3rem;
+  height: 3px;
+  background: linear-gradient(90deg, var(--primary-blue-start) 0%, var(--primary-blue-end) 100%);
+  border-radius: 2px;
+}
+
+/* --- Form Elements --- */
+.form-group {
+  margin-bottom: 1.5rem;
+  position: relative;
+  animation: fadeInUp 0.6s ease-out;
+  animation-delay: calc(var(--animation-order) * 0.1s);
+}
+
+.form-group:nth-child(1) { --animation-order: 1; }
+.form-group:nth-child(2) { --animation-order: 2; }
+.form-group:nth-child(3) { --animation-order: 3; }
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #4a5568;
+  font-weight: 600;
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 2px solid var(--input-border-color);
+  background: #f8fafc;
+  color: var(--text-color-dark);
+  border-radius: var(--border-radius-medium);
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-blue-start);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+  background: var(--background-card);
+}
+
+.form-group input::placeholder {
+  color: var(--input-placeholder-color);
+  font-weight: 400;
+}
+
+.form-group:focus-within label {
+  color: var(--primary-blue-start);
+  transform: translateY(-2px);
+}
+
+/* --- Bouton Principal --- */
+.submit-btn {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, var(--primary-blue-start) 0%, var(--primary-blue-end) 100%);
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius-medium);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-button);
+}
+
+.submit-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-button-hover);
+}
+
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+.submit-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* --- Links & Paragraphs --- */
+.login-form a {
+  color: var(--primary-blue-start);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.login-form a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--primary-blue-start);
+  transition: width 0.3s ease;
+}
+
+.login-form a:hover::after {
+  width: 100%;
+}
+
+.login-form p {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: var(--text-color-light);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+/* --- Password Toggle Icon --- */
+.password-input-wrapper {
+  position: relative;
+}
+
+.password-toggle-icon {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  color: var(--input-placeholder-color);
+  transition: all 0.3s ease;
+  font-size: 1.125rem;
+  z-index: 10;
+}
+
+.password-toggle-icon:hover {
+  color: var(--primary-blue-start);
+  transform: translateY(-50%) scale(1.1);
+}
+
+/* --- Messages --- */
+.message {
+  padding: 1rem;
+  border-radius: var(--border-radius-medium);
+  margin-top: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  animation: slideInUp 0.3s ease-out;
+  border: 1px solid var(--border-color-light);
+}
+
+.error-msg {
+  background: #fef2f2;
+  color: #e53e3e;
+  border-color: rgba(229, 62, 62, 0.3);
+}
+
+.success-msg {
+  background: #f0fdf4;
+  color: #48bb78;
+  border-color: rgba(72, 187, 120, 0.3);
+}
+
+/* --- Responsive Design --- */
+@media (max-width: 768px) {
+  .login-container { padding: 1rem; }
+  .login-form { padding: 2rem; border-radius: 1rem; }
+  .login-form h2 { font-size: 1.75rem; }
+  .form-group input { padding: 0.875rem 1rem; font-size: 0.875rem; }
+  .submit-btn { padding: 0.875rem 1.25rem; font-size: 0.875rem; }
+}
+
+@media (max-width: 480px) {
+  .login-form { padding: 1.5rem; margin: 1rem; }
+  .login-form h2 { font-size: 1.5rem; }
+  .form-group { margin-bottom: 1.25rem; }
+  .form-group input { padding: 0.75rem; font-size: 0.875rem; }
+  .submit-btn { padding: 0.75rem 1rem; font-size: 0.875rem; }
+}

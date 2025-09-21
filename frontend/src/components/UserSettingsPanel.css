@@ -1,0 +1,153 @@
+/* Conteneur principal */
+.user-settings-panel {
+  width: 360px;
+  height: 100vh;
+  background: #ffffff; /* Fond blanc */
+  border-left: 3px solid #e0e0e0; /* Bordure grise claire */
+  border-right: 3px solid #e0e0e0; /* Bordure grise claire */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: -2px 0 16px rgba(0, 0, 0, 0.1); /* Ombre légère */
+  z-index: 2;
+  animation: slideInRight 0.25s;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Bouton de fermeture */
+.user-settings-close {
+  position: absolute;
+  top: 18px;
+  right: 24px;
+  background: none;
+  border: none;
+  color: #333333; /* Texte noir */
+  font-size: 2em;
+  cursor: pointer;
+  z-index: 10;
+  transition: color 0.2s;
+}
+.user-settings-close:hover {
+  color: #007bff; /* Bleu vif au survol */
+}
+
+/* Contenu principal */
+.user-settings-content {
+  width: 100%;
+  max-width: 410px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18px;
+  padding-bottom: 60px;
+  min-height: 130vh;
+  box-sizing: border-box;
+}
+
+/* Avatar */
+.user-settings-avatar {
+  width: 140px;
+  height: 140px; /* Réduit la hauteur pour un cercle parfait */
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+
+.user-settings-avatar::after {
+  content: "📷";
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+
+
+/* Titre */
+.user-settings-title {
+  color: #333333; /* Texte noir */
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+/* Formulaire */
+.user-settings-form {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.user-settings-form label {
+  color: #666666; /* Texte gris moyen */
+  font-size: 0.98em;
+  margin-bottom: 2px;
+}
+
+.user-settings-form input {
+  background: #f5f5f5; /* Fond gris très clair */
+  border: 1px solid #cccccc; /* Bordure grise */
+  border-radius: 5px;
+  color: #333333; /* Texte noir */
+  padding: 8px 10px;
+  font-size: 0.9em;
+  margin-bottom: 6px;
+  transition: border 0.2s;
+}
+.user-settings-form input::placeholder {
+  color: #999999; /* Texte gris clair pour les placeholders */
+  font-size: 0.9em;
+}
+
+.user-settings-form input:focus {
+  border: 2px solid #007bff; /* Bleu vif au focus */
+  outline: none;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.2); /* Ombre légère */
+}
+
+/* Bouton de sauvegarde */
+.user-settings-save {
+  background: #007bff; /* Bleu vif */
+  color: #ffffff; /* Texte blanc */
+  border: none;
+  border-radius: 6px;
+  padding: 10px 0;
+  font-size: 1em;
+  font-weight: 600;
+  margin-top: 10px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.user-settings-save:hover {
+  background: #0056b3; /* Bleu plus foncé au survol */
+}
+
+/* Message indicatif pour changer l'avatar */
+.user-settings-content > div:nth-child(4) {
+  color: #888888; /* Texte gris clair */
+  font-size: 0.9em;
+  text-align: center;
+  margin-bottom: 16px;
+  font-style: italic;
+}

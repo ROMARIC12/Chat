@@ -1,0 +1,70 @@
+/* Conteneur principal */
+.chat-page {
+  display: flex;
+  height: 100vh;
+  background-color: #ffffff; /* Fond blanc */
+}
+
+/* Écran de bienvenue */
+.chat-welcome-screen {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #333333; /* Texte noir */
+  font-family: 'Segoe UI', Arial, sans-serif;
+  padding: 2rem;
+  background-color: #f9f9f9; /* Fond gris très clair */
+}
+
+.welcome-content h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  line-height: 1.3;
+  color: #333333; /* Titre noir */
+}
+
+.welcome-content p {
+  font-size: 1.1rem;
+  color: #666666; /* Texte gris moyen */
+  margin-bottom: 2rem;
+}
+
+.welcome-content button {
+  background-color: #007bff; /* Bleu vif */
+  color: white; /* Texte blanc */
+  border: none;
+  border-radius: 50px;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
+  box-shadow: 0 4px 8px rgba(0, 123, 255, 0.2); /* Ombre légère */
+}
+
+.welcome-content button:hover {
+  background-color: #0056b3; /* Bleu plus foncé au survol */
+  transform: scale(1.05);
+}
+
+/* Zone centrale (contacts/messages OU accueil OU chat) */
+.central-zone {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  transition: margin-right 0.3s;
+  margin-right: 400px; /* Ajusté dynamiquement dans le JSX */
+  background-color: #ffffff; /* Fond blanc */
+  border-left: 1px solid #e0e0e0; /* Bordure grise claire */
+}
+
+/* Animation pour les transitions */
+@keyframes slideInRight {
+  from { transform: translateX(100px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}

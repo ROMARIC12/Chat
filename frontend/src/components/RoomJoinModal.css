@@ -1,0 +1,181 @@
+.room-join-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5); /* Fond plus clair */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+  animation: fadeIn 0.3s ease;
+}
+
+.room-join-modal {
+  background: #ffffff; /* Fond blanc au lieu de sombre */
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); /* Ombre plus légère */
+  animation: slideIn 0.3s ease;
+}
+
+.room-join-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 24px 16px 24px;
+  border-bottom: 1px solid #e0e0e0; /* Bordure claire */
+}
+
+.room-join-modal-header h3 {
+  color: #333333; /* Texte noir */
+  margin: 0;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.room-join-modal-close {
+  background: none;
+  border: none;
+  color: #666666; /* Gris au lieu de gris foncé */
+  font-size: 1.5em;
+  cursor: pointer;
+  padding: 0;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+
+.room-join-modal-close:hover {
+  background: #f0f0f0; /* Gris clair au survol */
+  color: #333333; /* Texte noir */
+}
+
+.room-join-modal-content {
+  padding: 24px;
+}
+
+.room-info {
+  margin-bottom: 24px;
+}
+
+.room-type-badge {
+  display: inline-block;
+  background: #007bff; /* Bleu */
+  color: #fff;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.85em;
+  font-weight: 500;
+  margin-bottom: 12px;
+}
+
+.room-info h4 {
+  color: #333333; /* Texte noir */
+  margin: 0 0 8px 0;
+  font-size: 1.1em;
+  font-weight: 600;
+}
+
+.room-description {
+  color: #666666; /* Gris au lieu de gris clair */
+  font-size: 0.95em;
+  margin: 0 0 16px 0;
+  line-height: 1.4;
+}
+
+.room-stats {
+  display: flex;
+  gap: 16px;
+  color: #888888; /* Gris */
+  font-size: 0.9em;
+}
+
+.room-stats span {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.room-join-modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+}
+
+.room-join-btn-cancel,
+.room-join-btn-confirm {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95em;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.room-join-btn-cancel {
+  background: #6c757d; /* Gris au lieu de sombre */
+  color: #fff;
+}
+
+.room-join-btn-cancel:hover {
+  background: #5a6268; /* Gris plus foncé au survol */
+}
+
+.room-join-btn-confirm {
+  background: #007bff; /* Bleu */
+  color: #fff;
+}
+
+.room-join-btn-confirm:hover {
+  background: #0056b3; /* Bleu plus foncé au survol */
+}
+
+.room-join-modal-content input,
+.room-join-modal-content select,
+.room-join-modal-content textarea {
+  width: 100%;
+  margin-bottom: 14px;
+  padding: 10px 12px;
+  border-radius: 6px;
+  border: 1px solid #e0e0e0; /* Bordure claire */
+  background: #ffffff; /* Fond blanc */
+  color: #333333; /* Texte noir */
+  font-size: 1em;
+  outline: none;
+  transition: border 0.2s;
+  box-sizing: border-box;
+}
+.room-join-modal-content input:focus,
+.room-join-modal-content select:focus,
+.room-join-modal-content textarea:focus {
+  border: 1.5px solid #007bff; /* Bleu au focus */
+  background: #ffffff; /* Fond blanc */
+}
+.room-join-modal-content textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideIn {
+  from { 
+    opacity: 0; 
+    transform: translateY(-20px) scale(0.95);
+  }
+  to { 
+    opacity: 1; 
+    transform: translateY(0) scale(1);
+  }
+} 
